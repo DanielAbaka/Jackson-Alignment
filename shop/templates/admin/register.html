@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    {% include '_messages.html' %}
+    {% from "_formhelpers.html" import render_field %}
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="text-center h1 text-danger">Register</div>
+    <form method="post" enctype="multipart/form-data">
+    <dl>
+        {{ render_field(form.firstname ,class="form-control") }}
+        {{ render_field(form.lastname ,class="form-control") }}
+        {{ render_field(form.username ,class="form-control") }}
+        {{ render_field(form.phone ,class="form-control") }}
+        {{ render_field(form.email ,class="form-control") }}
+        {{ render_field(form.password ,class="form-control") }}
+        {{ render_field(form.confirm ,class="form-control") }}
+        <input type="file" name="photo">
+    </dl>
+    <input type="submit" value="Register" class="btn btn-info mt-2">
+    <td><p>Already have an account?<a href="/login"> Login Now!</a></p></td>
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+{% endblock content %}

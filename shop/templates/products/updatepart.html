@@ -1,0 +1,71 @@
+{% extends 'layout.html' %} {% block content %} {% include '_messages.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2 class="text-center bg-info p-2">Update Product</h2>
+            {% from "_formhelpers.html" import render_field %}
+            <form action="" method="POST" enctype="multipart/form-data">
+                {{ render_field(form.name, class="form-control", placeholder="Add part name")}} {{ render_field(form.number, class="form-control", placeholder="Part number")}} {{ render_field(form.front_oenumber, class="form-control", placeholder="Front OE Number")}}
+                {{ render_field(form.rear_oenumber, class="form-control", placeholder="Rear OE Number")}}
+                <label for="brand">Brand Name</label>
+                <select name="brand" id="brand" class="form-control" required>
+                <option value="{{part.brand_id}}">{{part.brand.name}}</option>
+                {% for brand in brands %}
+                <option value="{{brand.id}}">{{brand.name}}</option>
+                {% endfor %}
+            </select>
+                <label for="year">Year</label>
+                <select name="year" id="year" class="form-control" required>
+                <option value="{{part.year_id}}">{{part.year.name}}</option>
+                {% for year in years %}
+                <option value="{{year.id}}">{{year.name}}</option>
+                {% endfor %}
+
+            </select>
+                <label for="make">Make</label>
+                <select name="make" id="year" class="form-control" required>
+                <option value="{{part.make_id}}">{{part.make.name}}</option>
+                {% for make in makes %}
+                <option value="{{make.id}}">{{make.name}}</option>
+                {% endfor %}
+
+            </select>
+                <label for="model">Model</label>
+                <select name="model" id="model" class="form-control" required>
+                <option value="{{part.model_id}}">{{part.model.name}}</option>
+                {% for model in models %}
+                <option value="{{model.id}}">{{model.name}}</option>
+                {% endfor %}
+
+            </select>{{ render_field(form.sub_model, class="form-control", placeholder="Sub Model")}}
+                <label for="engine">Engine</label>
+                <select name="engine" id="engine" class="form-control" required>
+                <option value="{{part.engine_id}}">{{part.engine.name}}</option>
+                {% for engine in engines %}
+                <option value="{{engine.id}}">{{engine.name}}</option>
+                {% endfor %}
+
+            </select> {{ render_field(form.price, class="form-control", placeholder="Price")}} {{ render_field(form.discount, class="form-control", placeholder="Discount")}} {{ render_field(form.stock, class="form-control", placeholder="In
+                Stock")}} {{ render_field(form.colors, class="form-control", placeholder="Color")}} {{ render_field(form.location, class="form-control", placeholder="Location")}} {{ render_field(form.discription, class="form-control", placeholder="Discription",
+                rows="10")}}
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">{{ render_field(form.image_1, class="form-control")}}</div>
+                        <div class="col-md-4">{{ render_field(form.image_2, class="form-control")}}</div>
+                        <div class="col-md-4">{{ render_field(form.image_3, class="form-control")}}</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-info mt-2">Update Part</button>
+                <td><a href="/admin" class="btn btn-dark mt-2">Cancel</a></td>
+
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{% endblock content %}

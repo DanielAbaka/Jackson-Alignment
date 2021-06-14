@@ -1,0 +1,23 @@
+{% extends "layout.html"  %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% include "_messages.html" %}
+            {% if updateyear %}
+            <h1 class="text-center mt-5" >Update a year</h1>
+            <form action="" method="POST">
+                <input type="text" name="year" class="form-control" value="{{updateyear.name}}">
+                <input type="submit" value="Update year" class="btn btn-info mt-2">
+                <td><a href="/years" class="btn btn-dark mt-2">Cancel</a></td>
+            </form>
+            {% endif %}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+{% endblock content %}
